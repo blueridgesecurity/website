@@ -1,0 +1,155 @@
+/* components/layout/Navbar.module.css */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.2rem 5%;
+  z-index: 1000;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease, padding 0.3s ease;
+}
+
+.navbar.scrolled {
+  background-color: rgba(13, 31, 61, 0.7); /* Updated to match new dark bg */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.8rem 5%;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  gap: 1rem;
+}
+
+.logo {
+  text-decoration: none;
+  display: flex; /* Helps with image alignment */
+  align-items: center;
+  margin-right: 1rem;
+}
+
+/* Ensure the logo image keeps its original aspect ratio and doesn't get squished */
+
+.logo img {
+  width: auto;
+  height: 64px; /* increased per user request for better clarity */
+  object-fit: contain;
+  display: block;
+}
+
+/* Cropped mark container (shows left side of the larger wordmark) */
+.logoMark {
+  display: inline-block;
+  width: 90px;
+  height: 90px;
+  overflow: hidden;
+  line-height: 0;
+}
+.logoMark :global(img) {
+  /* Ensure the internal image fills the container vertically and is positioned left */
+  height: 100%;
+  width: auto;
+  display: block;
+  object-fit: cover;
+  object-position: left center;
+}
+
+/* Also target plain img elements inside the logo containers */
+.logoMark img {
+  height: 100%;
+  width: auto;
+  display: block;
+  object-fit: cover;
+  object-position: left center;
+}
+
+/* Full wordmark: hidden on small screens, visible on wider viewports */
+.logoFull {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .logoMark {
+    display: none;
+  }
+  .logoFull {
+    display: inline-block;
+    height: 90px;
+    line-height: 0;
+  }
+  .logoFull :global(img),
+  .logoFull img {
+    height: 90px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+  }
+}
+
+.navMenu {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navMenu a {
+  color: var(--color-text-muted-dark);
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+  padding: 0.35rem 0;
+  display: inline-block;
+}
+.navGetStarted { color: var(--color-accent) !important; font-weight:700; }
+.navGetStarted::after { background: var(--color-accent); }
+
+.navMenu a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary-light);
+  transition: width 180ms ease-in-out;
+}
+
+.navMenu a:hover {
+  color: var(--color-white);
+}
+
+.navMenu a:hover::after {
+  width: 100%;
+}
+
+.navCta {
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .navContainer {
+    padding: 0.25rem 0;
+  }
+  .navMenu {
+    gap: 1rem;
+    display: flex; /* show menu on small screens as well */
+  }
+  .navCta {
+    display: flex;
+  }
+}
+
+@media (min-width: 901px) {
+  .navMenu {
+    display: flex;
+  }
+}

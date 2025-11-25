@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="Blue Ridge mountain mark">
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#59b7ff"/>
+      <stop offset="100%" stop-color="#0065a3"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#8fd7ff"/>
+      <stop offset="100%" stop-color="#2a9ad6"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="none"/>
+  <!-- Main mountain -->
+  <path d="M24 200 L112 56 L200 200 Z" fill="url(#g1)"/>
+  <!-- Secondary peak -->
+  <path d="M64 200 L112 100 L152 200 Z" fill="url(#g2)" opacity="0.95"/>
+  <!-- Snow cap -->
+  <path d="M96 88 L112 72 L128 88 L112 80 Z" fill="#ffffff" opacity="0.9"/>
+</svg>

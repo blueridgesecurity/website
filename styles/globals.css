@@ -1,0 +1,233 @@
+/* styles/globals.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Brand Palette (Sampled from new logo) */
+  --color-primary: #00aaff; /* Bright mountain peak blue */
+  --color-primary-dark: #005f9e; /* Dark mountain base blue */
+  --color-primary-text: #0077b6; /* Medium blue from logo text */
+  --color-primary-light: #61daff; /* Lighter shade for hovers */
+  --color-accent: #61daff; /* A futuristic 'cyber' accent (updated) */
+
+  /* Light Mode */
+  --color-bg-light: #f4f7fa;
+  --color-bg-secondary-light: #ffffff;
+  --color-text-light: #1e293b;
+  --color-text-muted-light: #64748b;
+
+  /* Dark Mode (Default) - Deeper, more professional blue */
+  --color-bg-dark: #0d1f3d; /* Deep mountain night sky blue */
+  --color-bg-secondary-dark: #121a2e; /* Slightly lighter card bg */
+  --color-text-dark: #f1f5f9;
+  --color-text-muted-dark: #94a3b8;
+
+  /* Neutrals */
+  --color-white: #ffffff;
+  --color-grey: #e2e8f0;
+  --color-border: rgba(148, 163, 184, 0.2); /* Muted border */
+
+  /* Typography */
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Layout */
+  --max-width: 1240px;
+  --border-radius: 8px;
+  --transition-speed: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Default to dark mode. */
+html {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-dark);
+}
+
+html[data-theme='light'] {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-light);
+}
+
+body {
+  font-family: var(--font-body);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 18px; /* increased slightly for readability */
+  line-height: 1.6;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* --- Global Classes --- */
+.container {
+  width: 90%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 8rem 0; /* Standard vertical spacing for sections */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: var(--color-text-dark);
+  letter-spacing: -0.02em;
+}
+
+html[data-theme='light'] h1,
+html[data-theme='light'] h2,
+html[data-theme='light'] h3,
+html[data-theme='light'] h4,
+html[data-theme='light'] h5,
+html[data-theme='light'] h6 {
+  color: var(--color-text-light);
+}
+
+h1 { font-size: 3.5rem; } /* 56px */
+h2 { font-size: clamp(1.9rem, 2.3vw, 2.5rem); }
+h3 { font-size: clamp(1.4rem, 1.8vw, 1.75rem); }
+h4 { font-size: 1.25rem; } /* 20px */
+
+p {
+  font-size: 18px; /* match body size increase */
+  line-height: 1.6;
+  color: var(--color-text-muted-dark);
+  margin-bottom: 1.5rem;
+}
+
+/* Feature/Card Titles */
+.featureCard h3,
+.highlightCard h4,
+.infoPanel h4,
+.detailCard h4,
+.fancyCard h4,
+.managementCard h4,
+.profileCard,
+.capIconTitle {
+  font-size: 1.15rem !important;
+  font-weight: 600;
+}
+
+html[data-theme='light'] p {
+  color: var(--color-text-muted-light);
+}
+
+a {
+  color: var(--color-primary-light);
+  text-decoration: none;
+  transition: var(--transition-speed);
+}
+a:hover {
+  color: var(--color-white);
+}
+
+/* --- Button Styles --- */
+.btn {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.8rem 1.8rem;
+  border-radius: var(--border-radius);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: var(--transition-speed);
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+}
+.btn-primary:hover {
+  background-color: var(--color-primary-light);
+  border-color: var(--color-primary-light);
+  color: var(--color-bg-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 170, 255, 0.15);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-white);
+  border-color: var(--color-border);
+}
+.btn-secondary:hover {
+  background-color: var(--color-white);
+  color: var(--color-bg-dark);
+  border-color: var(--color-white);
+}
+
+html[data-theme='light'] .btn-secondary {
+  color: var(--color-text-light);
+  border-color: var(--color-text-light);
+}
+html[data-theme='light'] .btn-secondary:hover {
+  background-color: var(--color-text-light);
+  color: var(--color-white);
+}
+
+/* --- Animated Cyber Grid Background --- */
+.cyber-grid-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: 
+    linear-gradient(var(--color-primary-dark) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-primary-dark) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: 0 0;
+  opacity: 0.05; /* Made even more subtle */
+  animation: moveGrid 20s linear infinite;
+}
+
+@keyframes moveGrid {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 50px 50px;
+  }
+}
+
+/* --- NEW Topo Texture --- */
+.topo-background {
+  background-image: url('/images/topo-texture.png'); /* Using a png placeholder */
+  background-repeat: repeat;
+  background-size: 400px;
+  background-position: center;
+  opacity: 0.02;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+
+/* --- Section Title Header --- */
+.section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 4rem auto;
+}
+
+.section-header .eyebrow {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-primary-light);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}

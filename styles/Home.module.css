@@ -1,0 +1,293 @@
+/* styles/Home.module.css */
+
+/* --- Hero --- */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8rem 5% 4rem 5%;
+  overflow: hidden;
+}
+
+/* --- NEW Hero Video --- */
+.heroVideoWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  overflow: hidden;
+}
+.heroVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Covers the whole area */
+}
+.videoOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-bg-dark); /* Use the dark bg color */
+  opacity: 0.6; /* Darkens the video so text is readable */
+  z-index: 1;
+}
+/* --- End Hero Video --- */
+
+
+.heroGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, var(--color-primary-dark) 0%, transparent 60%);
+  opacity: 0.3;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.heroContent {
+  max-width: 900px;
+  position: relative;
+  z-index: 2;
+}
+
+.heroContent h1 {
+  font-size: 4.5rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.5rem;
+}
+
+.textGradient {
+  background: linear-gradient(90deg, var(--color-primary-light), var(--color-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  color: var(--color-text-muted-dark);
+  max-width: 700px;
+  margin: 0 auto 2.5rem auto;
+  line-height: 1.7;
+}
+
+.heroCta {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* --- NEW "Why Choose Us" Bar (Replaces Logo Bar) --- */
+.whyChooseUsBar {
+  background-color: var(--color-bg-secondary-dark);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+.whyChooseUsContainer {
+  padding: 4rem 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  text-align: center;
+}
+.whyChooseUsItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.whyChooseUsItem svg {
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+.whyChooseUsItem h4 {
+  font-size: 1.25rem;
+  color: var(--color-text-dark);
+  margin: 0;
+}
+.whyChooseUsItem p {
+  font-size: 1rem;
+  color: var(--color-text-muted-dark);
+  margin: 0;
+  max-width: 300px;
+}
+@media (max-width: 768px) {
+  .whyChooseUsContainer {
+    grid-template-columns: 1fr;
+  }
+}
+/* --- End "Why Choose Us" Bar --- */
+
+
+/* --- Services Grid --- */
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.cardLinkWrapper {
+  text-decoration: none;
+  height: 100%;
+  display: block;
+}
+
+.serviceCard {
+  background: var(--color-bg-secondary-dark);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: 2.5rem;
+  transition: var(--transition-speed);
+  position: relative;
+  overflow: hidden;
+  height: 100%; /* Make card fill wrapper */
+}
+.serviceCard::before { /* Hover glow effect */
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 170, 255, 0.1) 0%, transparent 40%);
+  transition: var(--transition-speed);
+  opacity: 0;
+  transform: scale(0);
+}
+.cardLinkWrapper:hover .serviceCard::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.serviceIcon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(0, 170, 255, 0.1);
+  color: var(--color-primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.serviceCard h4 {
+  font-size: 1.4rem;
+  color: var(--color-text-dark);
+  margin-bottom: 0.5rem;
+  transition: var(--transition-speed);
+}
+
+.cardLinkWrapper:hover .serviceCard h4 {
+  color: var(--color-primary-light);
+}
+
+.serviceCard p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: var(--color-text-muted-dark);
+}
+
+.cardLink {
+  font-weight: 600;
+  color: var(--color-primary-light);
+  text-decoration: none;
+  transition: var(--transition-speed);
+}
+
+.cardLinkWrapper:hover .cardLink {
+  color: var(--color-white);
+}
+
+/* --- Why Us --- */
+.whyUs {
+  background-color: var(--color-bg-secondary-dark);
+}
+.whyUsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.whyUsItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  background: var(--color-bg-dark);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-border);
+}
+.whyUsIcon {
+  color: var(--color-accent);
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+.whyUsItem h4 {
+  margin-bottom: 0.5rem;
+  color: var(--color-text-dark);
+}
+.whyUsItem p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* --- Stats --- */
+.stats {
+  background: linear-gradient(180deg, var(--color-bg-dark) 0%, var(--color-bg-secondary-dark) 100%);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  text-align: center;
+  padding: 4rem 0; /* Reduced padding for this section */
+}
+
+.statItem h3 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--color-primary-light);
+}
+.statItem p {
+  font-size: 1.1rem;
+  color: var(--color-text-muted-dark);
+  margin: 0;
+}
+
+/* --- Final CTA --- */
+.finalCta {
+  text-align: center;
+  background: 
+    radial-gradient(ellipse at bottom, rgba(0, 170, 255, 0.1), transparent 70%),
+    var(--color-bg-dark);
+}
+
+.finalCta .container {
+  max-width: 800px;
+}
+
+.finalCta h2 {
+  font-size: 2.5rem;
+}
+
+.finalCta p {
+  font-size: 1.2rem;
+  color: var(--color-text-muted-dark);
+  margin-bottom: 2rem;
+}
